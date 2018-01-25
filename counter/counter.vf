@@ -1,0 +1,68 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : counter.vf
+// /___/   /\     Timestamp : 01/25/2018 23:27:05
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3a -verilog E:/Xilinx_ISE/MJ_Projects/simon_monk_fpga_book/counter/counter.vf -w E:/Xilinx_ISE/MJ_Projects/simon_monk_fpga_book/counter/counter.sch
+//Design Name: counter
+//Device: spartan3a
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module counter(Clock, 
+               QA, 
+               QB, 
+               QC, 
+               QD);
+
+    input Clock;
+   output QA;
+   output QB;
+   output QC;
+   output QD;
+   
+   wire XLXN_14;
+   wire XLXN_15;
+   wire XLXN_23;
+   wire XLXN_26;
+   wire QA_DUMMY;
+   wire QB_DUMMY;
+   wire QC_DUMMY;
+   wire QD_DUMMY;
+   
+   assign QA = QA_DUMMY;
+   assign QB = QB_DUMMY;
+   assign QC = QC_DUMMY;
+   assign QD = QD_DUMMY;
+   FD #( .INIT(1'b0) ) XLXI_1 (.C(Clock), 
+              .D(XLXN_26), 
+              .Q(QA_DUMMY));
+   FD #( .INIT(1'b0) ) XLXI_2 (.C(XLXN_26), 
+              .D(XLXN_23), 
+              .Q(QB_DUMMY));
+   FD #( .INIT(1'b0) ) XLXI_3 (.C(XLXN_23), 
+              .D(XLXN_15), 
+              .Q(QC_DUMMY));
+   FD #( .INIT(1'b0) ) XLXI_4 (.C(XLXN_15), 
+              .D(XLXN_14), 
+              .Q(QD_DUMMY));
+   INV  XLXI_5 (.I(QA_DUMMY), 
+               .O(XLXN_26));
+   INV  XLXI_6 (.I(QB_DUMMY), 
+               .O(XLXN_23));
+   INV  XLXI_7 (.I(QC_DUMMY), 
+               .O(XLXN_15));
+   INV  XLXI_8 (.I(QD_DUMMY), 
+               .O(XLXN_14));
+endmodule

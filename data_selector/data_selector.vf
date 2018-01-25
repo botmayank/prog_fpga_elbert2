@@ -1,0 +1,51 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : data_selector.vf
+// /___/   /\     Timestamp : 01/24/2018 15:27:51
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3a -verilog E:/Xilinx_ISE/MJ_Projects/data_selector/data_selector.vf -w E:/Xilinx_ISE/MJ_Projects/data_selector/src/data_selector.sch
+//Design Name: data_selector
+//Device: spartan3a
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module data_selector(A, 
+                     B, 
+                     SEL, 
+                     Q);
+
+    input A;
+    input B;
+    input SEL;
+   output Q;
+   
+   wire XLXN_2;
+   wire XLXN_3;
+   wire XLXN_4;
+   wire XLXN_7;
+   
+   AND2  XLXI_1 (.I0(XLXN_7), 
+                .I1(A), 
+                .O(XLXN_4));
+   AND2  XLXI_2 (.I0(XLXN_2), 
+                .I1(B), 
+                .O(XLXN_3));
+   OR2  XLXI_3 (.I0(XLXN_3), 
+               .I1(XLXN_4), 
+               .O(Q));
+   INV  XLXI_4 (.I(SEL), 
+               .O(XLXN_7));
+   INV  XLXI_5 (.I(XLXN_7), 
+               .O(XLXN_2));
+endmodule
